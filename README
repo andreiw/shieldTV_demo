@@ -14,7 +14,7 @@ song-and-dance (you broke it in 1.4!) and at
 least TELL us where the UART pads are on the
 motherboard. If you're really cool put together
 an "official" Ubuntu image that runs on the
-TX1 and the Shield (and fix SCR_EL2.HCE, too).
+TX1 and the Shield (and fix SCR_EL3.HCE, too).
 _,.-+^*'_,.-+^*'_,.-+^*'_,.-+^*'_,.-+^*'_,.-+^*'
 
 What this is
