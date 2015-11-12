@@ -71,7 +71,10 @@ How to boot
   The code will now start. You will see text and
   some drawn diagonal lines black background. The
   text should say we're at EL2 and the lines
-  should be green.
+  should be green. The drawing will be slow -
+  the MMU is off and the caches are thus disabled.
+  Let me know if it's interesting to see the MMU
+  setup code.
 
 Credits
 =======
