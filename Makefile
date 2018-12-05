@@ -1,3 +1,5 @@
+CROSS_COMPILE ?= ~/src/rpi3/gcc-linaro-5.5.0-2017.10-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+
 CC = $(CROSS_COMPILE)gcc
 LD = $(CROSS_COMPILE)ld
 OBJCOPY = $(CROSS_COMPILE)objcopy
@@ -27,9 +29,10 @@ LDFLAGS = -pie
 %.o: %.c
 	$(CC) $(CFLAGS) $< -c -o $@
 
-# The offsets below seem disregarded, but I made the match boot.img from NV's OS image.
+all: $(TARGET)
+
 $(TARGET): $(TARGET).bin
-	mkbootimg --base 0x10000000 --pagesize 2048 --kernel_offset 0x8000 --ramdisk_offset 0x1000000 --second_offset 0x0 --tags_offset 0x100 --kernel $< --ramdisk /dev/null -o $@
+	mkbootimg --pagesize 4096 --kernel $< --ramdisk /dev/null -o $@
 
 $(TARGET).bin: $(TARGET).elf
 	$(OBJCOPY) -v -O binary $< $@
